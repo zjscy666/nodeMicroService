@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+  </head>
+  <body>
+    <button onClick="test()">test</button>
+  </body>
+  <script>
+    function test() {
+      fetch("/test", {
+        method: "post",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ a: 1, b: 2 }),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          console.log(data);
+        });
+    }
+  </script>
+</html>
